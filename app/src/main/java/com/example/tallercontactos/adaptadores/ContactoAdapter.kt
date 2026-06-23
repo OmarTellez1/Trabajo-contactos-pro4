@@ -16,7 +16,9 @@ class ContactoAdapter(var datos: List<Contacto>): RecyclerView.Adapter<ContactoA
     }
 
     override fun onBindViewHolder(holder: ContactoViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        var contacto = datos[position]
+        holder.txtNombre.setText(contacto.nombre)
+        holder.txtDireccion.setText(contacto.direccion)
     }
 
     override fun getItemCount(): Int {
