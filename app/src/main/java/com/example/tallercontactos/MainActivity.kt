@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tallercontactos.adaptadores.ContactoAdapter
 import com.example.tallercontactos.entidad.Contacto
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         )
         var adaptador = ContactoAdapter(listaContactos)
         main.adapter = adaptador
+        main.layoutManager = LinearLayoutManager(this)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
