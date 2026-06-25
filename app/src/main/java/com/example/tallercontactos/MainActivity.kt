@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity() {
             Contacto("Carlos","09392032", "carlos@gmail.com", "Sauces"),
             Contacto("Omar","093920332312", "omar@gmail.com", "Villa club"),
             Contacto("Christianna","09392044532", "christianna@gmail.com", "washington"),
-            Contacto("Antonio","0922392032", "antonio@gmail.com", "la aurora")
+            Contacto("Antonio","0922392032", "antonio@gmail.com", "la aurora"),
+            Contacto("Jesus","09211122392032", "jesus@gmail.com", "villa del rey")
         )
         var adaptador = ContactoAdapter(listaContactos)
         main.adapter = adaptador

@@ -17,8 +17,8 @@ class ContactoAdapter(var datos: List<Contacto>): RecyclerView.Adapter<ContactoA
 
     override fun onBindViewHolder(holder: ContactoViewHolder, position: Int) {
         var contacto = datos[position]
-        holder.txtNombre.setText(contacto.nombre)
-        holder.txtDireccion.setText(contacto.direccion)
+        holder.nombre.setText(contacto.nombre)
+        holder.direccion.setText(contacto.direccion)
     }
 
     override fun getItemCount(): Int {
@@ -26,9 +26,9 @@ class ContactoAdapter(var datos: List<Contacto>): RecyclerView.Adapter<ContactoA
     }
 
     class ContactoViewHolder(vista: View): RecyclerView.ViewHolder(vista){
-        private var contenedor: View
-        private var nombre: TextView
-        private var direccion: TextView
+         var contenedor: View
+         var nombre: TextView
+         var direccion: TextView
         init{
             contenedor = vista
             nombre = vista.findViewById(R.id.txtNombre)
