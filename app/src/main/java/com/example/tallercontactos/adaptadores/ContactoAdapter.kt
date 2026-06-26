@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tallercontactos.R
 import com.example.tallercontactos.entidad.Contacto
 
-class ContactoAdapter(var datos: List<Contacto>): RecyclerView.Adapter<ContactoAdapter.ContactoViewHolder>() {
+class ContactoAdapter(var datos: List<Contacto>, var click: (Contacto) -> Unit): RecyclerView.Adapter<ContactoAdapter.ContactoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactoViewHolder {
         val vista = LayoutInflater.from(parent.context).inflate(R.layout.item_contacto, parent, false)
@@ -17,6 +17,9 @@ class ContactoAdapter(var datos: List<Contacto>): RecyclerView.Adapter<ContactoA
 
     override fun onBindViewHolder(holder: ContactoViewHolder, position: Int) {
         var contacto = datos[position]
+        holder.contenedor.setOnClickListener{
+            click(contacto)
+        }
         holder.nombre.setText(contacto.nombre)
         holder.direccion.setText(contacto.direccion)
     }

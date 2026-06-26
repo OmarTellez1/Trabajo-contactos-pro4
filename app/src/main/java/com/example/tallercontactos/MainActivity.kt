@@ -1,5 +1,6 @@
 package com.example.tallercontactos
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tallercontactos.actividades.DetalleActivity
 import com.example.tallercontactos.adaptadores.ContactoAdapter
 import com.example.tallercontactos.entidad.Contacto
 
@@ -23,7 +25,14 @@ class MainActivity : AppCompatActivity() {
             Contacto("Antonio","0922392032", "antonio@gmail.com", "la aurora"),
             Contacto("Jesus","09211122392032", "jesus@gmail.com", "villa del rey")
         )
-        var adaptador = ContactoAdapter(listaContactos)
+        var adaptador = ContactoAdapter(listaContactos, {
+            var intento = Intent(this, DetalleActivity::class.java)
+            intento.putExtra("p-nombre", it.nombre)
+            intento.putExtra("p-correo", it.correo)
+            intento.putExtra("p-telefono", it.telefono)
+            intento.putExtra("p-direccion", it.direccion)
+            startActivity(intento)
+        })
         main.adapter = adaptador
         main.layoutManager = LinearLayoutManager(this)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
